@@ -1,0 +1,46 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "department": "Engineering",
+      "role": "Software Engineer",
+      "salary": 75000,
+      "date_of_joining": "2020-05-20",
+      "address": {
+        "street": "123 Main St",
+        "city": "New York",
+        "state": "NY",
+        "zip_code": "10001"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "department": "Marketing",
+      "role": "Marketing Manager",
+      "salary": 85000,
+      "date_of_joining": "2018-03-14",
+      "address": {
+        "street": "456 Elm St",
+        "city": "Los Angeles",
+        "state": "CA",
+        "zip_code": "90001"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Mike Johnson",
+      "department": "Human Resources",
+      "role": "HR Specialist",
+      "salary": 68000,
+      "date_of_joining": "2019-07-01",
+      "address": {
+        "street": "789 Maple Ave",
+        "city": "Chicago",
+        "state": "IL",
+        "zip_code": "60601"
+      }
+    }
+  ]
+}
