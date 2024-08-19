@@ -5,13 +5,13 @@ if __name__ == "__main__":
 
     # Reading a csv file and converting it into a dataframe
 
-    csv_file_path = os.path.join('../sample_data_files', 'employee_data_csv.csv')
+    csv_file_path = os.path.join('../sample_data_files', 'employee_dataset_csv.csv')
     with open(csv_file_path, 'r') as employee_csv_file:
         employee_data_df = pd.read_csv(employee_csv_file)
 
     print(employee_data_df)
 
-    # Concatenating the address row values in the dataframe
+    # Concatenating the name row values in the dataframe
 
     employee_data_df['Full_Name'] = (employee_data_df['First_Name'] + ' ' + employee_data_df['Last_Name'])
     print(employee_data_df)
