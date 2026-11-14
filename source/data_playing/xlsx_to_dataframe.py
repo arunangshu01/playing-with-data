@@ -1,11 +1,13 @@
 import pandas as pd
 import os
 
+SAMPLE_DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'sample_data_files')
+
 if __name__ == "__main__":
 
     # Reading a xlsx file and converting it into a dataframe
 
-    xlsx_file_path = os.path.join('../sample_data_files', 'employee_dataset_xlsx.xlsx')
+    xlsx_file_path = os.path.join(SAMPLE_DATA_DIR, 'employee_dataset_xlsx.xlsx')
     employee_data_df = pd.read_excel(xlsx_file_path)
 
     print(employee_data_df)
@@ -34,6 +36,9 @@ if __name__ == "__main__":
 
     # Grouping the dataframe by a specific column and aggregate
 
-    employee_data_df['Joining_Date'] = employee_data_df['Joining_Date'].astype(dtype=str)
-    employee_data_df = employee_data_df.groupby(by='Department').sum()
+    employee_data_df = employee_data_df.groupby(by='Department').agg(
+        Employees=('Employee_ID', 'count'),
+        Total_Salary=('Salary', 'sum'),
+        Average_Experience=('Years_Of_Experience', 'mean'),
+    )
     print(employee_data_df)

@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            requirements-dev.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements-dev.txt
+
+      - name: Run tests
+        run: pytest -v
+
+      - name: Smoke test that the app boots
+        run: |
+          streamlit run streamlit_app.py --server.headless true --server.port 8501 &
+          for i in $(seq 1 30); do
+            if curl -sf http://localhost:8501/_stcore/health; then
+              echo "App is healthy"
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "App failed to become healthy in time"
+          exit 1
