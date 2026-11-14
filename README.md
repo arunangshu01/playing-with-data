@@ -1,5 +1,10 @@
 # playing-with-data - Data Manipulation with Python
 
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://playing-with-data.streamlit.app/)
+[![CI](https://github.com/arunangshu01/playing-with-data/actions/workflows/ci.yml/badge.svg)](https://github.com/arunangshu01/playing-with-data/actions/workflows/ci.yml)
+
+**Live demo:** https://playing-with-data.streamlit.app/
+
 This repository contains code samples for playing with data from JSON files, CSV files, and Excel files using **NumPy** and **Pandas** in Python. The provided scripts demonstrate various techniques for loading, processing, and analyzing data using these powerful libraries.
 
 ## Contents
@@ -45,6 +50,8 @@ To run the code samples in this repository, you need to have Python installed al
 ## Interactive Demo
 
 `streamlit_app.py` walks through each pipeline step by step, showing the pandas code next to the resulting DataFrame, plus an explorer for custom group-by aggregations.
+
+Try it online at **https://playing-with-data.streamlit.app/**, or run it locally:
 
 ```sh
 streamlit run streamlit_app.py
