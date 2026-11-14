@@ -14,23 +14,50 @@ To run the code samples in this repository, you need to have Python installed al
 
 - NumPy
 - Pandas 
+- openpyxl (for reading Excel files)
+- Streamlit (for the interactive demo)
 
 1. You can install the required packages using pip:
 
     ```sh
-    pip install numpy pandas
+    pip install -r requirements.txt
+    ```
 
 ## Getting Started
 
 1. **Clone the repository:**
    ```sh
    git clone https://github.com/arunangshu01/playing-with-data.git
+   ```
 
 2. **Navigate to the cloned repository:**
    ```sh
    cd playing-with-data
+   ```
 
- 3. **Explore the folders and files to find the tutorials and solutions you are interested in.**
+3. **Run any of the scripts** (they can be run from any directory):
+   ```sh
+   python source/data_playing/csv_to_dataframe.py
+   ```
+
+4. **Explore the folders and files to find the tutorials and solutions you are interested in.**
+
+## Interactive Demo
+
+`streamlit_app.py` walks through each pipeline step by step, showing the pandas code next to the resulting DataFrame, plus an explorer for custom group-by aggregations.
+
+```sh
+streamlit run streamlit_app.py
+```
+
+## Testing
+
+```sh
+pip install -r requirements-dev.txt
+pytest
+```
+
+GitHub Actions (`.github/workflows/ci.yml`) runs the tests and a boot check of the Streamlit app on every push and pull request to `main`. The app is hosted on Streamlit Community Cloud, which redeploys automatically whenever `main` changes.
 
 ### Contributing
 

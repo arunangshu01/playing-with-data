@@ -2,11 +2,13 @@ import json
 import os
 import pandas as pd
 
+SAMPLE_DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'sample_data_files')
+
 if __name__ == "__main__":
 
     # Reading a json file and converting it into a dataframe
 
-    json_file_path = os.path.join('../sample_data_files', 'employee_dataset_json.json')
+    json_file_path = os.path.join(SAMPLE_DATA_DIR, 'employee_dataset_json.json')
     with open(json_file_path, 'r') as employee_json_file:
         employee_data = json.load(employee_json_file)
 
@@ -42,5 +44,8 @@ if __name__ == "__main__":
 
     # Grouping the dataframe by a specific column and aggregate
 
-    employee_data_df = employee_data_df.groupby(by='department', group_keys=True).sum()
+    employee_data_df = employee_data_df.groupby(by='department').agg(
+        employees=('id', 'count'),
+        total_salary=('salary', 'sum'),
+    )
     print(employee_data_df)
