@@ -115,6 +115,13 @@ st.caption('Loading, transforming and aggregating employee data from CSV, JSON a
 source = st.sidebar.radio('Data source', list(DATASETS))
 dataset = DATASETS[source]
 st.sidebar.markdown(f"Script: `source/data_playing/{dataset['script']}`")
+st.sidebar.divider()
+st.sidebar.caption('Created by **Arunangshu Pramanik**')
+st.sidebar.caption(
+    '[GitHub](https://github.com/arunangshu01) | '
+    '[LinkedIn](https://www.linkedin.com/in/arunangshu-pramanik-1896168b) | '
+    '[Email](mailto:arunangshu01@gmail.com)'
+)
 
 df = dataset['load']()
 
