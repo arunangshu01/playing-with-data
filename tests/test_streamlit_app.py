@@ -24,6 +24,13 @@ def test_pipeline_and_dictionary_tabs_render(source):
     at = run_app(source)
     assert len(at.dataframe) >= 4
     assert len(at.json) == 1
+    captions = [caption.value for caption in at.sidebar.caption]
+    assert 'Created by **Arunangshu Pramanik**' in captions
+    assert any(all(link in caption for link in (
+        '[GitHub](https://github.com/arunangshu01)',
+        '[LinkedIn](https://www.linkedin.com/in/arunangshu-pramanik-1896168b)',
+        '[Email](mailto:arunangshu01@gmail.com)',
+    )) for caption in captions)
 
 
 @pytest.mark.parametrize('source', list(EXPLORE_OPTIONS))
